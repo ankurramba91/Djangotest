@@ -35,32 +35,40 @@
           </form>
         </div>
       </nav>
-<div class="container my-4 col-md-6 text-center " >
+      {% if messages %}
+      {% for message in messages %}
+  
+      <div class="alert success-{{message.tags}}" >
+          {{message}}
+      </div>
+  
+      {% endfor %}
+      {%endif%}
 
-    <form >
-        <div class="form-group row">
-            <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Username</label>
-            <div class="col-sm-6">
-                <input class="form-control" type="text" placeholder="Enter Username">
+
+      <div class="container my-4 col-md-4 text-center " >
+
+        <form  action="" method="POST">
+          {% csrf_token %}
+            <div class="form-group row">
+                <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-8">
+                  {{form.username}}
+                   
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-6">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Enter Password">
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-8">
+                  {{form.password}}
+                   
+                </div>
             </div>
-        </div>
-        <button type="button" class="btn btn-primary">Login</button>
-        <button type="submit" class="btn btn-primary" ><a href="signup/" style="color: aliceblue; text-decoration: none;">Signup</a></button>
-    </form>
-</div>
-
-
-    {% for studentlist in response %}
-
-    {{studentlist.name }}
-    
-    {% endfor %}
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary" ><a href="signup/" style="color: aliceblue; text-decoration: none;">Signup</a></button>
+        </form>
+    </div>
+  
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

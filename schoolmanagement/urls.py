@@ -18,13 +18,18 @@ from django.urls import path,include
 from rest_framework import routers
 from myclass.views import studentViewset
 from myclass import views
+from django.contrib.auth import views as authentication_views
+
 
 router = routers.DefaultRouter()
 router.register('myclass',studentViewset)
 
 urlpatterns = [
-    path('home/',include(router.urls)),
     path('admin/', admin.site.urls),
-    path('', views.studentlist,name='studentlist'),
+    path('home/',include(router.urls)),
+    path('index/', views.studentlist,name='studentlist'),
     path('signup/', views.signup,name='signup'),
+    path('',authentication_views.LoginView.as_view(template_name='myclass/login.html'),name='login'),
+    path('logout/',views.logout,name='logout')
+    
 ]
