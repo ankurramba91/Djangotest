@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #intall package here
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #install app here
     'myclass.apps.MyclassConfig',
 ]
 
@@ -127,3 +130,22 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'studentlist'
 LOGIN_URL = 'login'
+
+
+#SMTP Configuration for Reset Password
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'djangoresetpwd@gmail.com'
+EMAIL_HOST_PASSWORD = 'kzawvngpzvjadmta'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
+
+#JWT Auth
+
+REST_FRAMEWORK={
+    'DEFAULT_PERMISSION_CLASSES':('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_AUTHENTICATION_CLASSES':('rest_framework_simplejwt.authentication.JWTAuthentication',)
+}

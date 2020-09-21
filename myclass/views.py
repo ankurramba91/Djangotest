@@ -37,22 +37,3 @@ def signup(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
-
-
-
-
-
-# def signup(request):
-#     if request.method == 'POST':
-#         username = request.POST['username']
-#         firstname = request.POST['firstname']
-#         lastname = request.POST['lastname']
-#         email = request.POST['email']
-#         password = request.POST['password']
-
-#         x = User.objects.create_user(username=username,first_name=firstname,last_name=lastname,email=email,password=password)
-#         x.save()
-#         return redirect ('/')
-#     else:
-            
-#         return render(request, 'myclass/signup.html')

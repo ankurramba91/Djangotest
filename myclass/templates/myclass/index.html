@@ -29,6 +29,8 @@
 
             </ul>
 
+
+            <!-- for new user login alert -->
             <ul class="form-inline my-2 my-lg-0">
 
                 <li class="nav-item form-inline" style="list-style: none; ">
@@ -44,11 +46,32 @@
         </div>
     </nav>
     <div class="container my-4 col-md-6 text-center ">
-        {% for studentlist in response %}
+       
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Class</th>
+                <th scope="col">RollNo</th>
+                <th scope="col">Age</th>
+                <th scope="col">Father's Name</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for studentlist in response %}
+              <tr>
+                <th scope="row">{{studentlist.id }}</th>
+                <td> {{studentlist.name }}</td>
+                <td>{{studentlist.grade }}</td>
+                <td>{{studentlist.rollno }}</td>
+                <td>{{studentlist.age }}</td>
+                <td>{{studentlist.fathersname }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
 
-        {{studentlist.name }}
-
-        {% endfor %}
 
     </div>
 
